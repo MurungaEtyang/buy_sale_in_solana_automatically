@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Solana Request</title>
+</head>
+<body>
+<button id="connectButton">Connect to Phantom</button>
+<button id="requestButton">Request SOL</button>
+
+<script>
+    const connectButton = document.getElementById('connectButton');
+    const requestButton = document.getElementById('requestButton');
+    let fromAddress;
+
+    connectButton.addEventListener('click', async () => {
+        try {
+            const resp = await window.solana.connect();
+            fromAddress = resp.publicKey.toString();
+            alert('Connected to Phantom wallet: ' + fromAddress);
+        } catch (err) {
+            console.error(err);
+            alert('Failed to connect to Phantom wallet.');
+        }
+    });
+
+    requestButton.addEventListener('click', async () => {
+        if (!fromAddress) {
+            alert('Please connect to Phantom wallet first.');
+            return;
+        }
+
+        const toAddress = 'DestinationPublicKeyHere';
+        const lamports = 1000000;  // 0.01 SOL
+
+        const response = await fetch('localhost:8080:/api/v1/solana/request', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ fromAddress, toAddress, lamports })
+        });
+
+        const result = await response.text();
+        alert('Transaction result: ' + result);
+    });
+</script>
+</body>
+</html>

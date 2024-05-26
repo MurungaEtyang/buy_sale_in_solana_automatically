@@ -9,13 +9,18 @@ import com.solana.solanaApplication.services.SolanaWalletService;
 public class SolanaWalletController {
 
     @Autowired
-    private SolanaWalletService solanaService;
+    private SolanaWalletService solanaWalletService;
 
     @PostMapping("/request")
     public String requestSol(
             @RequestParam String fromAddress,
             @RequestParam String toAddress,
             @RequestParam long lamports) {
-        return solanaService.requestSol(fromAddress, toAddress, lamports);
+        return solanaWalletService.requestSol(fromAddress, toAddress, lamports);
+    }
+
+    @RequestMapping("/message")
+    public String index() {
+        return "Greetings from Spring Boot!";
     }
 }

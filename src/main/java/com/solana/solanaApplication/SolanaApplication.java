@@ -2,10 +2,10 @@ package com.solana.solanaApplication;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.context.annotation.Lazy;
 
-@RestController
+
+@Lazy(value = false)
 @SpringBootApplication
 public class SolanaApplication {
 
@@ -13,8 +13,4 @@ public class SolanaApplication {
 		SpringApplication.run(SolanaApplication.class, args);
 	}
 
-	@RequestMapping("/api/v1/sayHello")
-	public String helloWorld(){
-		return "Hello world";
-	}
 }
