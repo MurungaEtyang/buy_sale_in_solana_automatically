@@ -1,7 +1,6 @@
-package com.solana.solanaApplication.inheritance;
+package com.solana.solanaApplication.services.inheritance;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import okhttp3.OkHttpClient;
 
 public class ServiceInheritance {
@@ -29,11 +28,9 @@ public class ServiceInheritance {
      * Creates a new instance of ServiceInheritance.
      *
      */
-
     public ServiceInheritance() {
         super();
         this.httpClient = new OkHttpClient();
         this.objectMapper = new ObjectMapper();
     }
-
 }

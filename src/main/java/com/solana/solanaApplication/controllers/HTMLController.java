@@ -1,6 +1,5 @@
 package com.solana.solanaApplication.controllers;
 
-import org.springframework.boot.autoconfigure.web.ServerProperties;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +12,7 @@ import java.nio.file.Paths;
 
 @RestController
 public class HTMLController {
+
 
     @RequestMapping("/api/v1/html")
     public ResponseEntity<String> index() {

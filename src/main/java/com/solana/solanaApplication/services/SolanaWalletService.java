@@ -26,8 +26,8 @@ public class SolanaWalletService {
      * This method sends a request to the Solana RPC API to transfer SOL from one address to another.
      *
      * @param fromAddress The address from which the SOL will be transferred.
-     * @param toAddress The address to which the SOL will be transferred.
-     * @param lamports The amount of lamports to be transferred.
+     * @param toAddress   The address to which the SOL will be transferred.
+     * @param lamports    The amount of lamports to be transferred.
      * @return A string indicating the success or failure of the transfer.
      */
     public String requestSol(String fromAddress, String toAddress, long lamports) {

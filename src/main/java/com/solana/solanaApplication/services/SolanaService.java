@@ -1,16 +1,17 @@
 package com.solana.solanaApplication.services;
 
-import com.solana.solanaApplication.inheritance.ServiceInheritance;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.solana.solanaApplication.services.inheritance.ServiceInheritance;
+import okhttp3.MediaType;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 import org.springframework.stereotype.Service;
+
 import java.io.IOException;
-import okhttp3.*;
 
 @Service
 public class SolanaService extends ServiceInheritance  {
-
-
-
     /**
      * Retrieves the balance of a Solana account.
      *
