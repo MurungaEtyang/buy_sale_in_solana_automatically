@@ -9,10 +9,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.security.*;
@@ -35,11 +32,11 @@ public class BuyTokenController {
             @ApiResponse(responseCode = "200", description = "Transfer successful", content = @Content(schema = @Schema(implementation = Map.class))),
             @ApiResponse(responseCode = "500", description = "Transfer failed", content = @Content(schema = @Schema(implementation = Map.class)))
     })
-    @PostMapping("/buy")
+    @GetMapping("/buy")
     public ResponseEntity<Map<String, Object>> buyToken(
             @Parameter(description = "The private key of the sender account") @RequestParam("senderPrivateKey") String senderPrivateKey,
             @Parameter(description = "The address of the recipient account") @RequestParam("recipientAddress") String recipientAddress,
-            @Parameter(description = "The amount of solana to be bought") @RequestParam("lamports") float amount
+            @Parameter(description = "The amount of solana to be bought") @RequestParam("SOL eg 1 SOL") float amount
     ) {
         Map<String, Object> response = new HashMap<>();
         try {

@@ -14,7 +14,7 @@ public class SolanaWalletService {
     private String rpcUrl;
 
     /**
-     * Initializes the SolanaService by creating an OkHttpClient and setting the RPC URL.
+     * Initializes the TransactionFeeSolanaService by creating an OkHttpClient and setting the RPC URL.
      */
 
     public void SolanaService() {

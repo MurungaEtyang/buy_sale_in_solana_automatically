@@ -1,7 +1,9 @@
 package com.solana.solanaApplication.controllers;
 
 import com.solana.solanaApplication.controllers.inheritance.BalanceFeeInheritance;
-import com.solana.solanaApplication.services.SolanaService;
+
+import com.solana.solanaApplication.services.CheckBalance;
+import com.solana.solanaApplication.services.TransactionFeeSolanaService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -16,8 +18,10 @@ import java.util.*;
 @RestController
 @RequestMapping("/api/v1/token")
 public class SolanaBalance extends BalanceFeeInheritance {
-    public SolanaBalance(SolanaService solanaService) {
-        super(solanaService);
+
+
+    public SolanaBalance(TransactionFeeSolanaService transactionFeeSolanaService) {
+        super(transactionFeeSolanaService);
     }
 
     /**
@@ -40,7 +44,7 @@ public class SolanaBalance extends BalanceFeeInheritance {
     ) {
         Map<String, Object> response = new HashMap<>();
         try {
-            double balance = solanaService.getBalance(recipientAddress);
+            double balance = CheckBalance.getBalance(recipientAddress);
             response.put("status", "success");
             response.put("message", "Requested successfully");
             response.put("balance", balance);

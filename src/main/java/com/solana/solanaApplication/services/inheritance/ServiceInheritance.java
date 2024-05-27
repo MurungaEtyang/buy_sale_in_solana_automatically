@@ -12,12 +12,12 @@ public class ServiceInheritance {
     /**
      * The HTTP client used to make requests to the Solana RPC API.
      */
-    protected final OkHttpClient httpClient;
+    protected static OkHttpClient httpClient = new OkHttpClient();
 
     /**
      * The object mapper used to serialize and deserialize JSON data.
      */
-    protected final ObjectMapper objectMapper;
+    protected static ObjectMapper objectMapper = new ObjectMapper();
 
     /**
      * The number of lamports in one SOL.

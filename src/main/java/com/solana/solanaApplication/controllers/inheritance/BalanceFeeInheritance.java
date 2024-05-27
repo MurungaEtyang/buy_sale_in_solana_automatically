@@ -1,11 +1,11 @@
 package com.solana.solanaApplication.controllers.inheritance;
 
-import com.solana.solanaApplication.services.SolanaService;
+import com.solana.solanaApplication.services.TransactionFeeSolanaService;
 
 public class BalanceFeeInheritance {
-    protected final SolanaService solanaService;
+    protected final TransactionFeeSolanaService transactionFeeSolanaService;
 
-    public BalanceFeeInheritance(SolanaService solanaService) {
-        this.solanaService = solanaService;
+    public BalanceFeeInheritance(TransactionFeeSolanaService transactionFeeSolanaService) {
+        this.transactionFeeSolanaService = transactionFeeSolanaService;
     }
 }
